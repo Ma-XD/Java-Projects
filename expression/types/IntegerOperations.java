@@ -51,10 +51,7 @@ public class IntegerOperations implements TypeOperations<Integer> {
 
     @Override
     public Integer cnst(String constant) {
-        try {
-            return Integer.parseInt(constant);
-        } catch (NumberFormatException NFM) {
-            throw new ExpressionException("Not Integer constant: " + constant);
-        }
+        return Integer.parseInt(constant);
+
     }
 }

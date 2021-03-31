@@ -32,10 +32,6 @@ public class DoubleOperations implements TypeOperations<Double> {
 
     @Override
     public Double cnst(String constant) {
-        try {
-            return Double.parseDouble(constant);
-        } catch (NumberFormatException NFM) {
-            throw new ExpressionException("Not Double constant: " + constant);
-        }
+        return Double.parseDouble(constant);
     }
 }
