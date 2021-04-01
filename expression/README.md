@@ -1,7 +1,7 @@
 # Домашнее задание 4. Вычисление в различных типах
 ## Добавьте в программу разбирающую и вычисляющую выражения трех переменных поддержку вычисления в различных типах.
 
-  **1. Создайте класс expression.generic.GenericTabulator, реализующий интерфейс expression.generic.Tabulator:**
+  **1. Создайте класс `expression.generic.GenericTabulator`, реализующий интерфейс `expression.generic.Tabulator`:**
 
         public interface Tabulator {
            Object[][][] tabulate(String mode, String expression, int x1, int x2, int y1, int y2, int z1, int z2) throws Exception;
