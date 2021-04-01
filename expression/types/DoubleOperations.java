@@ -32,6 +32,10 @@ public class DoubleOperations implements TypeOperations<Double> {
 
     @Override
     public Double cnst(String constant) {
-        return Double.parseDouble(constant);
+        try {
+            return Double.parseDouble(constant);
+        } catch (NumberFormatException e) {
+            throw new ExpressionException("Cannot cast \"" + constant + "\" to double");
+        }
     }
 }

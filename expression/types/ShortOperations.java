@@ -33,6 +33,10 @@ public class ShortOperations implements TypeOperations<Short> {
 
     @Override
     public Short cnst(String constant) {
-        return (short) Integer.parseInt(constant);
+        try {
+            return (short) Integer.parseInt(constant);
+        } catch (NumberFormatException e) {
+            throw new ExpressionException("Cannot cast \"" + constant + "\" to short");
+        }
     }
 }

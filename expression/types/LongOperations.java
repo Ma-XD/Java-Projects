@@ -33,6 +33,10 @@ public class LongOperations implements TypeOperations<Long> {
 
     @Override
     public Long cnst(String constant) {
-        return Long.parseLong(constant);
+        try {
+            return Long.parseLong(constant);
+        } catch (NumberFormatException e) {
+            throw new ExpressionException("Cannot cast \"" + constant + "\" to long");
+        }
     }
 }

@@ -35,6 +35,10 @@ public class BigIntegerOperations implements TypeOperations<BigInteger> {
 
     @Override
     public BigInteger cnst(String constant) {
-        return new BigInteger(constant);
+        try {
+            return new BigInteger(constant);
+        } catch (NumberFormatException e) {
+            throw new ExpressionException("Cannot cast \"" + constant + "\" to BigInteger");
+        }
     }
 }

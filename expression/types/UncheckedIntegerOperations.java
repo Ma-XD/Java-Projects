@@ -33,6 +33,10 @@ public class UncheckedIntegerOperations implements TypeOperations<Integer> {
 
     @Override
     public Integer cnst(String constant) {
-        return Integer.parseInt(constant);
+        try {
+            return Integer.parseInt(constant);
+        } catch (NumberFormatException e) {
+            throw new ExpressionException("Cannot cast \"" + constant + "\" to int");
+        }
     }
 }
