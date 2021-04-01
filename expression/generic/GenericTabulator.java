@@ -21,10 +21,10 @@ public class GenericTabulator implements Tabulator {
                 return new UncheckedIntegerOperations();
             case "l":
                 return new LongOperations();
-            case  "s":
+            case "s":
                 return new ShortOperations();
             default:
-                throw new IllegalArgumentException("Unknown type for letter \"" + mode + "\"");
+                throw new IllegalArgumentException("Unknown type for mode \"" + mode + "\"");
         }
     }
 
@@ -35,16 +35,18 @@ public class GenericTabulator implements Tabulator {
 
     private <T> Object[][][] buildTable(TypeOperations<T> type, String expression, int x1, int x2, int y1, int y2, int z1, int z2) {
         Object[][][] result = new Object[x2 - x1 + 1][y2 - y1 + 1][z2 - z1 + 1];
-        TripleExpression<T> expr = new ExpressionParser<>(type).parse(expression);
-        for (int x = x1; x < x2 + 1; x++) {
-            for (int y = y1; y < y2 + 1; y++) {
-                for (int z = z1; z < z2 + 1; z++) {
-                    try {
-                        result[x - x1][y - y1][z - z1] = expr.evaluate(getConst(type, x), getConst(type, y), getConst(type, z));
-                    } catch (ExpressionException | ParseException ignored) {}
+        try {
+            TripleExpression<T> expr = new ExpressionParser<>(type).parse(expression);
+            for (int x = x1; x < x2 + 1; x++) {
+                for (int y = y1; y < y2 + 1; y++) {
+                    for (int z = z1; z < z2 + 1; z++) {
+                        try {
+                            result[x - x1][y - y1][z - z1] = expr.evaluate(getConst(type, x), getConst(type, y), getConst(type, z));
+                        } catch (ExpressionException ignored) {}
+                    }
                 }
             }
-        }
+        } catch (ParseException ignored) {}
         return result;
     }
 
