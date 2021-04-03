@@ -42,7 +42,7 @@ public class IntegerOperations implements TypeOperations<Integer> {
     }
 
     @Override
-    public Integer negate(Integer first) {
+    public Integer neg(Integer first) {
         if (first == Integer.MIN_VALUE) {
             throw new ExpressionException("Overflow");
         }

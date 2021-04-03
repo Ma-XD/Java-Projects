@@ -29,7 +29,7 @@ public class BigIntegerOperations implements TypeOperations<BigInteger> {
     }
 
     @Override
-    public BigInteger negate(BigInteger first) {
+    public BigInteger neg(BigInteger first) {
         return first.negate();
     }
 

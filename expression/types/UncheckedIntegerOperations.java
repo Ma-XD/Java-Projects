@@ -27,7 +27,7 @@ public class UncheckedIntegerOperations implements TypeOperations<Integer> {
     }
 
     @Override
-    public Integer negate(Integer first) {
+    public Integer neg(Integer first) {
         return -first;
     }
 

@@ -27,7 +27,7 @@ public class ShortOperations implements TypeOperations<Short> {
     }
 
     @Override
-    public Short negate(Short first) {
+    public Short neg(Short first) {
         return (short)(-first);
     }
 

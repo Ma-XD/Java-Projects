@@ -26,7 +26,7 @@ public class DoubleOperations implements TypeOperations<Double> {
     }
 
     @Override
-    public Double negate(Double first) {
+    public Double neg(Double first) {
         return -first;
     }
 

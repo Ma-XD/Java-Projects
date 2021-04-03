@@ -37,11 +37,11 @@ public class GenericTabulator implements Tabulator {
         Object[][][] result = new Object[x2 - x1 + 1][y2 - y1 + 1][z2 - z1 + 1];
         try {
             TripleExpression<T> expr = new ExpressionParser<>(type).parse(expression);
-            for (int x = x1; x < x2 + 1; x++) {
-                for (int y = y1; y < y2 + 1; y++) {
-                    for (int z = z1; z < z2 + 1; z++) {
+            for (int dx = 0; dx < x2 - x1 + 1; dx++) {
+                for (int dy = 0; dy < y2 - y1 + 1; dy++) {
+                    for (int dz = 0; dz < z2 - z1 + 1; dz++) {
                         try {
-                            result[x - x1][y - y1][z - z1] = expr.evaluate(getConst(type, x), getConst(type, y), getConst(type, z));
+                            result[dx][dy][dz] = expr.evaluate(getConst(type, dx + x1), getConst(type, dy + y1), getConst(type, dz + z1));
                         } catch (ExpressionException ignored) {}
                     }
                 }

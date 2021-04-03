@@ -27,7 +27,7 @@ public class LongOperations implements TypeOperations<Long> {
     }
 
     @Override
-    public Long negate(Long first) {
+    public Long neg(Long first) {
         return -first;
     }
 
