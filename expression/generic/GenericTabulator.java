@@ -2,7 +2,7 @@ package expression.generic;
 
 import expression.ExpressionException;
 import expression.TripleExpression;
-import expression.exceptions.ExpressionParser;
+import expression.parser.ExpressionParser;
 import expression.exceptions.ParseException;
 import expression.types.*;
 

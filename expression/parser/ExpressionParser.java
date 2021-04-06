@@ -1,6 +1,7 @@
-package expression.exceptions;
+package expression.parser;
 
 import expression.*;
+import expression.exceptions.*;
 import expression.types.TypeOperations;
 
 public class ExpressionParser<T> implements Parser<T> {
@@ -18,7 +19,7 @@ public class ExpressionParser<T> implements Parser<T> {
         return new CheckedExpressionParser<T>(type, new StringSource(expression)).checkedParse();
     }
 
-    private static class CheckedExpressionParser<T> extends BaseParser  {
+    private static class CheckedExpressionParser<T> extends BaseParser {
         protected TypeOperations<T> type;
         private CommonExpression<T> prevExpression;
         private boolean wasBracketClosed;
@@ -72,7 +73,7 @@ public class ExpressionParser<T> implements Parser<T> {
                     !isOperation(prevLexeme.getSymbol()) &&
                     lexeme.getPriority() == Lexeme.getMaxPriority() &&
                     (lexeme.arity() == 2 || lexeme.arity() == 0))  {
-                throw new WrongOperationException("Two elements in a row without operation on pos: " + pos);
+                throw new IllegalOperationException("Two elements in a row without operation on pos: " + pos);
             }
             if (prevLexeme == Lexeme.OPENED &&
                     lexeme == Lexeme.CLOSED) {
@@ -82,20 +83,20 @@ public class ExpressionParser<T> implements Parser<T> {
                     lexeme != Lexeme.OPENED &&
                     lexeme.arity() == 2 &&
                     prevExpression == null) {
-                throw new WrongOperationException("Binary operation at the beginning of the line");
+                throw new IllegalOperationException("Binary operation at the beginning of the line");
             }
             if (isOperation(lexeme.getSymbol())  &&
                     lexeme != Lexeme.CLOSED &&
                     !source.hasNext() ||
                             lexeme.getSymbol().length() == 0) {
-                throw new WrongOperationException("Operation at the end of the line");
+                throw new IllegalOperationException("Operation at the end of the line");
             }
             if (prevLexeme != null &&
                     isOperation(prevLexeme.getSymbol()) &&
                     prevLexeme != Lexeme.CLOSED &&
                     (lexeme.getPriority() < Lexeme.getMaxPriority() ||
                             lexeme == Lexeme.CLOSED)) {
-                throw new WrongOperationException("Two illegal operations in a row on pos: " + pos);
+                throw new IllegalOperationException("Two illegal operations in a row on pos: " + pos);
             }
         }
 

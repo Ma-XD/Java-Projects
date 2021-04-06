@@ -1,4 +1,4 @@
-package expression.exceptions;
+package expression.parser;
 
 public enum Lexeme {
     ADD(10, "+"), SUB(10, "-"),

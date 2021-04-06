@@ -1,4 +1,6 @@
-package expression.exceptions;
+package expression.parser;
+
+import expression.exceptions.ParseException;
 
 public interface CharSource {
     boolean hasNext();

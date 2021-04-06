@@ -11,5 +11,4 @@ public class Negate<T> extends AbstractUnaryExpression<T> implements CommonExpre
     protected T calculate(T first) {
         return type.neg(first);
     }
-
 }
