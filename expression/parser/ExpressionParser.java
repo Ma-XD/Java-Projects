@@ -4,7 +4,7 @@ import expression.*;
 import expression.exceptions.*;
 import expression.types.TypeOperations;
 
-public class ExpressionParser<T> implements Parser<T> {
+public class ExpressionParser<T extends Number> implements Parser<T> {
     private final TypeOperations<T> type;
 
     public ExpressionParser(TypeOperations<T> type) {
@@ -19,7 +19,7 @@ public class ExpressionParser<T> implements Parser<T> {
         return new CheckedExpressionParser<T>(type, new StringSource(expression)).checkedParse();
     }
 
-    private static class CheckedExpressionParser<T> extends BaseParser {
+    private static class CheckedExpressionParser<T extends Number> extends BaseParser {
         protected TypeOperations<T> type;
         private CommonExpression<T> prevExpression;
         private boolean wasBracketClosed;

@@ -1,7 +1,6 @@
 package expression.parser;
 
 import expression.exceptions.ParseException;
-import expression.parser.CharSource;
 
 public class StringSource implements CharSource {
     private final String data;

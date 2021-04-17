@@ -2,7 +2,7 @@ package expression;
 
 import expression.types.TypeOperations;
 
-public class Negate<T> extends AbstractUnaryExpression<T> implements CommonExpression<T> {
+public class Negate<T extends Number> extends AbstractUnaryExpression<T> implements CommonExpression<T> {
     public Negate(TypeOperations<T> type, CommonExpression<T> expression1) {
         super(type, expression1);
         operation = "-";

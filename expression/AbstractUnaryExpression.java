@@ -1,7 +1,7 @@
 package expression;
 import expression.types.TypeOperations;
 
-public abstract class AbstractUnaryExpression<T> implements CommonExpression<T>{
+public abstract class AbstractUnaryExpression<T extends Number> implements CommonExpression<T>{
     protected final CommonExpression<T> expression1;
     protected final TypeOperations<T> type;
     protected String operation;

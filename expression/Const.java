@@ -2,7 +2,7 @@ package expression;
 
 import expression.types.TypeOperations;
 
-public class Const<T>  implements CommonExpression<T> {
+public class Const<T extends Number>  implements CommonExpression<T> {
     private final String constant;
     private final TypeOperations<T> type;
 

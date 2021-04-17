@@ -2,7 +2,7 @@ package expression;
 
 import expression.types.TypeOperations;
 
-public abstract class AbstractExpression<T> implements CommonExpression<T>{
+public abstract class AbstractExpression<T extends Number> implements CommonExpression<T>{
     protected final CommonExpression<T> expression1, expression2;
     protected final TypeOperations<T> type;
     protected char operation;

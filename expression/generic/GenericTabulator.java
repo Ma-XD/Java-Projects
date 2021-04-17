@@ -33,15 +33,18 @@ public class GenericTabulator implements Tabulator {
         return buildTable(type, expression, x1, x2, y1, y2, z1, z2);
     }
 
-    private <T> Object[][][] buildTable(TypeOperations<T> type, String expression, int x1, int x2, int y1, int y2, int z1, int z2) {
+    private <T extends Number> Object[][][] buildTable(TypeOperations<T> type, String expression, int x1, int x2, int y1, int y2, int z1, int z2) {
         Object[][][] result = new Object[x2 - x1 + 1][y2 - y1 + 1][z2 - z1 + 1];
         try {
             TripleExpression<T> expr = new ExpressionParser<>(type).parse(expression);
             for (int dx = 0; dx < x2 - x1 + 1; dx++) {
+                T xConst = getConst(type, dx + x1);
                 for (int dy = 0; dy < y2 - y1 + 1; dy++) {
+                    T yConst = getConst(type, dy + y1);
                     for (int dz = 0; dz < z2 - z1 + 1; dz++) {
+                        T zConst = getConst(type, dz + z1);
                         try {
-                            result[dx][dy][dz] = expr.evaluate(getConst(type, dx + x1), getConst(type, dy + y1), getConst(type, dz + z1));
+                            result[dx][dy][dz] = expr.evaluate(xConst, yConst, zConst);
                         } catch (ExpressionException ignored) {}
                     }
                 }
@@ -50,7 +53,7 @@ public class GenericTabulator implements Tabulator {
         return result;
     }
 
-    private <T> T getConst(TypeOperations<T> type, int i) {
+    private <T extends Number> T getConst(TypeOperations<T> type, int i) {
         return type.cnst(Integer.toString(i));
     }
 
@@ -68,10 +71,10 @@ public class GenericTabulator implements Tabulator {
         String expression = args[1];
         Tabulator tabulator = new GenericTabulator();
         Object[][][] result = tabulator.tabulate(mode, expression, -2, 2, -2, 2, -2, 2);
-        for (int i = 0; i < result.length; i++) {
+        for (Object[][] objects : result) {
             for (int j = 0; j < result.length; j++) {
                 for (int k = 0; k < result.length; k++) {
-                    System.out.print(result[i][j][k] + " ");
+                    System.out.print(objects[j][k] + " ");
                 }
                 System.out.println();
             }
