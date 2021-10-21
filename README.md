@@ -9,5 +9,3 @@
 ### Homework 2-3 QUEUE  [README.md](https://github.com/Ma-XD/Java-Projects/tree/main/JHW2.2-3#readme)
 
 ### Homework 4 GENERIC [README.md](https://github.com/Ma-XD/Java-Projects/tree/main/JHW2.4#readme)
-
-### Exam 2 CHECKERS [README.md](https://github.com/Ma-XD/Java-Projects/blob/main/Exam2/README.md)
