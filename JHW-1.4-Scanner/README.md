@@ -1,4 +1,4 @@
-# Домашнее задание 5. Свой сканер
+# Домашнее задание 1.4. Свой сканер
 **1. Реализуйте свой аналог класса [Scanner](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html) 
 на основе [Reader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Reader.html).**
 
