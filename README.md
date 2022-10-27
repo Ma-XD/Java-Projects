@@ -1,6 +1,6 @@
-# Java-Projects
+# My solutions for hometasks of java programming course 
 
-## My solutions for java hometasks at the ITMO university
+## First year
 
 ### HomeWork 1. [Sum](https://github.com/Ma-XD/Java-Projects/tree/main/1-year-java-hw/java-hw-1-Sum#readme)
 
