@@ -1,6 +1,6 @@
 # Solutions for homework of 1st year Java programming course
 
-## HomeWork 1. [Sum](https://github.com/Ma-XD/Java-Projects/tree/main/1-year-java-hw/java-hw-1-Sum#readme)
+## HomeWork 1. [Sum](https://github.com/Ma-XD/Java-Projects/tree/main/java-hw-1-Sum#readme)
 
 ## HomeWork 2. [Reverse](https://github.com/Ma-XD/Java-Projects/tree/main/java-hw-2-Reverse#readme)
 
